@@ -1,17 +1,4 @@
-function showprojects(){
-    $("#projects_container").css("display","inherit");
-    $("#projects_container").addClass("animated slideInDown");
-    setTimeout(function(){
-        $("#projects_container").removeClass("animated slideInDown");
-    },800);
-}
-function closeprojects(){
-    $("#projects_container").addClass("animated slideOutUp");
-    setTimeout(function(){
-        $("#projects_container").removeClass("animated slideOutUp");
-        $("#projects_container").css("display","none");
-    },800);
-}
+
 function showabout(){
     $("#regole_container").css("display","inherit");
     $("#regole_container").addClass("animated slideInLeft");
@@ -40,20 +27,7 @@ function closework(){
         $("#work_container").css("display","none");
     },800);
 }
-function showcontact(){
-    $("#contact_container").css("display","inherit");
-    $("#contact_container").addClass("animated slideInUp");
-    setTimeout(function(){
-        $("#contact_container").removeClass("animated slideInUp");
-    },800);
-}
-function closecontact(){
-    $("#contact_container").addClass("animated slideOutDown");
-    setTimeout(function(){
-        $("#contact_container").removeClass("animated slideOutDown");
-        $("#contact_container").css("display","none");
-    },800);
-}
+
 setTimeout(function(){
     $("#loading").addClass("animated fadeOut");
     setTimeout(function(){
