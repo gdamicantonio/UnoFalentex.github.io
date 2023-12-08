@@ -34,9 +34,7 @@ setTimeout(function(){
       $("#loading").removeClass("animated fadeOut");
       $("#loading").css("display","none");
       $("#box").css("display","none");
-      $("#projects").removeClass("animated fadeIn");
       $("#regole").removeClass("animated fadeIn");
-      $("#contact").removeClass("animated fadeIn");
-      $("#work").removeClass("animated fadeIn");
+      $("#LoFi").removeClass("animated fadeIn");
     },1000);
 },1500);
