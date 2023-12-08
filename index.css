@@ -308,20 +308,11 @@ body {
 }
 
 @media (max-width: 800px){ 
-    #projects {
-        display:none;
-    }
     #regole {
         display:none;
     }
-    #contact {
+    #lofi {
         display:none;
-    }
-    #work {
-        display:none;
-    }
-    #footer {
-        text-align:center;
     }
     #middle {
         width:90vw;
