@@ -14,17 +14,17 @@ function closeabout(){
     },800);
 }
 function showwork(){
-    $("#LoFi_container").css("display","inherit");
-    $("#LoFi_container").addClass("animated slideInRight");
+    $("#lofi_container").css("display","inherit");
+    $("#lofi_container").addClass("animated slideInRight");
     setTimeout(function(){
-        $("#LoFi_container").removeClass("animated slideInRight");
+        $("#lofi_container").removeClass("animated slideInRight");
     },800);
 }
 function closework(){
-    $("#LoFi_container").addClass("animated slideOutRight");
+    $("#lofi_container").addClass("animated slideOutRight");
     setTimeout(function(){
-        $("#LoFi_container").removeClass("animated slideOutRight");
-        $("#LoFi_container").css("display","none");
+        $("#lofi_container").removeClass("animated slideOutRight");
+        $("#lofi_container").css("display","none");
     },800);
 }
 
