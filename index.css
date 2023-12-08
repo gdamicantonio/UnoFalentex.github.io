@@ -53,6 +53,10 @@ body {
     background:rgb(255, 50, 50);
     margin-left:-5px;
 }
+.audio-player {
+    width: 300px;
+    margin: 20px;
+}
 #menu {
     width:100%;
     text-align:center;
