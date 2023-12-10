@@ -97,8 +97,8 @@ body {
     background:transparent;
     color:#fff;
     position:fixed;
-    left:0;
-    bottom:40vh;
+    bottom:0;
+    left:45vw;
     display:flex;
     flex-direction: column;
     justify-content:center;
