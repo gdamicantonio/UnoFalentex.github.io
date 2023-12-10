@@ -29,17 +29,17 @@ function closelofi(){
 }
 
 function showleaderboard(){
-    $("#leaderboard_container").css("display","inherit");
-    $("#leaderboard_container").addClass("animated slideInDown");
+    $("#classifica_container").css("display","inherit");
+    $("#classifica_container").addClass("animated slideInDown");
     setTimeout(function(){
-        $("#leaderboard_container").removeClass("animated slideInDown");
+        $("#classifica_container").removeClass("animated slideInDown");
     },800);
 }
 function closeleaderboard(){
-    $("#leaderboard_container").addClass("animated slideOutUp");
+    $("#classifica_container").addClass("animated slideOutUp");
     setTimeout(function(){
-        $("#leaderboard_container").removeClass("animated slideOutUp");
-        $("#leaderboard_container").css("display","none");
+        $("#classifica_container").removeClass("animated slideOutUp");
+        $("#classifica_container").css("display","none");
     },800);
 }
 
@@ -51,6 +51,6 @@ setTimeout(function(){
       $("#box").css("display","none");
       $("#regole").removeClass("animated fadeIn");
       $("#lofi").removeClass("animated fadeIn");
-      $("#leaderboard").removeClass("animated fadeIn");
+      $("#classifica").removeClass("animated fadeIn");
     },1000);
 },1500);
