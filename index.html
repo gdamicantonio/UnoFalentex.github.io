@@ -29,14 +29,16 @@
         <div class="box2 onlywide animated bounceOutRight" style="animation-delay: 1800ms;"></div>
         <div class="box2 onlywide animated bounceOutRight" style="animation-delay: 1700ms;"></div>
     </div>
-    <a id="regole" onclick="showabout()" class="animated fadeIn" style="animation-delay: 1000ms;">regole</a>
-    <a id="lofi" onclick="showwork()" class="animated fadeIn" style="animation-delay: 1000ms;">lofi</a>
+    <a id="regole" onclick="showregole()" class="animated fadeIn" style="animation-delay: 1000ms;">regole</a>
+    <a id="lofi" onclick="showlofi()" class="animated fadeIn" style="animation-delay: 1000ms;">lofi</a>
+    <a id="leaderboard" onclick="showleaderboard()" class="animated fadeIn" style="animation-delay: 1000ms;">leaderboard</a>
     <div id="middle" class="animated slideInDown" style="animation-delay: 2000ms;">
         <h1>Uno Falentex.</h1>
-        <h2>Perchè la violenza non è la soluzione, ma a volte è divertente.</h2>
+        <h2>Perchè la violenza non è mai la soluzione, ma a volte è divertente.</h2>
         <div id="menu">
-            <a onclick="showwork()">Regole</a>
-            <a onclick="showabout()">LoFi</a>
+            <a onclick="showregole()">Regole</a>
+            <a onclick="showlofi()">LoFi</a>
+            <a onclick="showleaderboard()">Classifica</a>
         </div>
         <table>
             <tr>
@@ -46,7 +48,7 @@
         </table>
     </div>
     <div id="lofi_container" class="container">
-        <div onclick="closework()"><i class="fas fa-angle-right"></i></div>
+        <div onclick="closelofi()"><i class="fas fa-angle-right"></i></div>
         <h1>LoFi</h1>
         <section>
             <audio controls>
@@ -55,8 +57,13 @@
             </audio>
         </section>
     </div>
+    <div id ="leaderboard_container" class="container">
+        <div onclick="closeleaderboard()"><i class="fas fa-angle-left"><\i><\div>
+        <h1>Classifica</h1>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSfZlm9bxpZa4Psar53ZToAlWr-Q9_auUz7ieLdnRChWrbFSC3aaiQG_-xRhR1xtTuoKq_nHYJX0hok/pubhtml?widget=true&amp;headers=false"></iframe>
+    </div>
     <div id="regole_container" class="container">
-        <div onclick="closeabout()"><i class="fas fa-angle-left"></i></div>
+        <div onclick="closeregole()"><i class="fas fa-angle-left"></i></div>
         <h1>Regole.</h1>
         <section>
             <p>
@@ -96,13 +103,13 @@
                     <dd>c. con il +4 o con l’invisibile non si può chiudere</dd>
                     <dd>d. in due, se chiudi con un +2 l’altro giocatore ti può rispondere</dd>
 
-                Penitenze
+                PENITENZE
                 <dt>11. Chi contesta e ha torto +4</dt>
                 <dt>12. Inizia l’ultimo che ha fatto la cacca</dt>
                 <dt>13. Chi perde da le carte (come minimo)</dt>
                 <dt>14. Se guardi il cellulare a meno di chiamate in arrivo, prendi +2</dt>
 
-                Altre regole
+                ALTRE REGOLE
                 <dt>15. Chi non finisce a leggere il regolamento prima che la partita sia iniziata si prende 4 carte. </dt>    
                 </dl>
 
