@@ -30,15 +30,15 @@ function closelofi(){
 
 function showleaderboard(){
     $("#leaderboard_container").css("display","inherit");
-    $("#leaderboard_container").addClass("animated slideInRight");
+    $("#leaderboard_container").addClass("animated slideInDown");
     setTimeout(function(){
-        $("#leaderboard_container").removeClass("animated slideInRight");
+        $("#leaderboard_container").removeClass("animated slideInDown");
     },800);
 }
 function closeleaderboard(){
-    $("#leaderboard_container").addClass("animated slideOutRight");
+    $("#leaderboard_container").addClass("animated slideOutUp");
     setTimeout(function(){
-        $("#leaderboard_container").removeClass("animated slideOutRight");
+        $("#leaderboard_container").removeClass("animated slideOutUp");
         $("#leaderboard_container").css("display","none");
     },800);
 }
