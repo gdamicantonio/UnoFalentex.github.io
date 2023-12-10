@@ -1,30 +1,45 @@
 
-function showabout(){
+function showregole(){
     $("#regole_container").css("display","inherit");
     $("#regole_container").addClass("animated slideInLeft");
     setTimeout(function(){
         $("#regole_container").removeClass("animated slideInLeft");
     },800);
 }
-function closeabout(){
+function closeregole(){
     $("#regole_container").addClass("animated slideOutLeft");
     setTimeout(function(){
         $("#regole_container").removeClass("animated slideOutLeft");
         $("#regole_container").css("display","none");
     },800);
 }
-function showwork(){
+function showlofi(){
     $("#lofi_container").css("display","inherit");
     $("#lofi_container").addClass("animated slideInRight");
     setTimeout(function(){
         $("#lofi_container").removeClass("animated slideInRight");
     },800);
 }
-function closework(){
+function closelofi(){
     $("#lofi_container").addClass("animated slideOutRight");
     setTimeout(function(){
         $("#lofi_container").removeClass("animated slideOutRight");
         $("#lofi_container").css("display","none");
+    },800);
+}
+
+function showleaderboard(){
+    $("#leaderboard_container").css("display","inherit");
+    $("#leaderboard_container").addClass("animated slideInRight");
+    setTimeout(function(){
+        $("#leaderboard_container").removeClass("animated slideInRight");
+    },800);
+}
+function closeleaderboard(){
+    $("#leaderboard_container").addClass("animated slideOutRight");
+    setTimeout(function(){
+        $("#leaderboard_container").removeClass("animated slideOutRight");
+        $("#leaderboard_container").css("display","none");
     },800);
 }
 
@@ -35,6 +50,7 @@ setTimeout(function(){
       $("#loading").css("display","none");
       $("#box").css("display","none");
       $("#regole").removeClass("animated fadeIn");
-      $("#LoFi").removeClass("animated fadeIn");
+      $("#lofi").removeClass("animated fadeIn");
+      $("#leaderboard").removeClass("animated fadeIn");
     },1000);
 },1500);
