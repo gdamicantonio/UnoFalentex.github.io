@@ -233,11 +233,22 @@
             var lossesCells = document.querySelectorAll('td:nth-child(3)');
     
             if (numbersView) {
-                winsCells.forEach(cell => cell.textContent = parseInt(cell.textContent));
-                lossesCells.forEach(cell => cell.textContent = parseInt(cell.textContent));
+                winsCells.forEach(cell => {
+                    cell.textContent = parseInt(cell.textContent) || 0;
+                });
+                lossesCells.forEach(cell => {
+                    cell.textContent = parseInt(cell.textContent) || 0;
+                });
             } else {
-                winsCells.forEach(cell => cell.textContent = "+".repeat(parseInt(cell.textContent)));
-                lossesCells.forEach(cell => cell.textContent = "-".repeat(parseInt(cell.textContent)));
+                winsCells.forEach(cell => {
+                    const wins = parseInt(cell.textContent);
+                    cell.textContent = wins > 0 ? "+".repeat(wins) : "";
+                });
+    
+                lossesCells.forEach(cell => {
+                    const losses = parseInt(cell.textContent);
+                    cell.textContent = losses > 0 ? "-".repeat(losses) : "";
+                });
             }
         }
         function loadData() {
@@ -250,12 +261,38 @@
 
         function updateData() {
             const csvData = serializeTableToCSV();
-            fetch('https://raw.githubusercontent.com/gdamicantonio/gdamicantonio.github.io/main/assets/data.csv', {
+            const apiUrl = `https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/contents/data.csv`;
+            const encodedData = btoa(csvData); // Base64 encode the CSV data
+            fetch(apiUrl, {
                 method: 'PUT',
-                body: csvData
-            }).then(() => {
-                console.log('Data updated successfully.');
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer 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`
+                },
+                body: JSON.stringify({
+                    message: 'Update data.csv',
+                    content: encodedData,
+                    sha: getSHA(), // Get the current SHA of the file
+                    branch: 'main' // Change if your default branch is different
+                })
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Data updated successfully.');
+                } else {
+                    console.error('Failed to update data.');
+                }
             });
+        }
+
+        function getSHA() {
+            const apiUrl = `https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/contents/data.csv`;
+            return fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => data.sha)
+                .catch(error => {
+                    console.error('Error fetching SHA:', error);
+                    return null;
+                });
         }
         function parseCSV(csvData) {
             const rows = csvData.split('\n');
