@@ -89,7 +89,7 @@
                 display: block;
                 margin: 0 auto;   /* Center the image horizontally */
                 position: absolute;
-                bottom: 0;
+                top: 0;
                 left: 50%;
                 transform: translateX(-50%);
             }
@@ -99,6 +99,7 @@
                 }
             }
         </style>
+        
         <table id="scoreboard">
             <tr>
                 <th>Player</th>
@@ -106,7 +107,9 @@
                 <th>Losses</th>
             </tr>
         </table>
-        
+        <div>
+            <button id="toggleButton" onclick="toggleView()">+/-</button>
+        </div>
         <form>
             <label for="playerName">Player Name:</label>
             <input type="text" id="playerName" placeholder="Enter player's name">
@@ -268,9 +271,7 @@
         loadData();
 
     </script>
-    <div>
-    <button id="toggleButton" onclick="toggleView()">Toggle View</button>
-    </div>
+
 </body>
 
 </html>
