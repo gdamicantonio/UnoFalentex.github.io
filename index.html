@@ -83,6 +83,12 @@
                 margin-bottom: 10px;
                 width: 100%;
             }
+            img {
+                max-width: 50%; 
+                height: auto;    
+                display: block;
+                margin: 20px auto; 
+            }
             @media (max-width: 600px) {
                 th, td {
                     font-size: 14px;
@@ -190,6 +196,17 @@
                 document.getElementById('playerName').value = "";
                 document.getElementById('playerWins').value = 0;
                 document.getElementById('playerLosses').value = 0;
+
+                var winButton = document.createElement("button");
+                winButton.textContent = "Win";
+                winButton.onclick = function () { addWin(newRow); };
+                newRow.appendChild(winButton);
+    
+                var lossButton = document.createElement("button");
+                lossButton.textContent = "Loss";
+                lossButton.onclick = function () { addLoss(newRow); };
+                newRow.appendChild(lossButton);
+                updateView();
             }
         }
         function addWin(playerRow) {
@@ -202,7 +219,59 @@
             var currentLosses = parseInt(lossesElement.textContent);
             lossesElement.textContent = currentLosses + 1;
         }
+    <script>
+        var numbersView = true; 
+        function toggleView() {
+            numbersView = !numbersView;
+            updateView();
+        }
+        function updateView() {
+            var winsCells = document.querySelectorAll('td:nth-child(2)');
+            var lossesCells = document.querySelectorAll('td:nth-child(3)');
+    
+            if (numbersView) {
+                winsCells.forEach(cell => cell.textContent = parseInt(cell.textContent));
+                lossesCells.forEach(cell => cell.textContent = parseInt(cell.textContent));
+            } else {
+                winsCells.forEach(cell => cell.textContent = "+".repeat(parseInt(cell.textContent)));
+                lossesCells.forEach(cell => cell.textContent = "-".repeat(parseInt(cell.textContent)));
+            }
+        }
+        function loadData() {
+            fetch('https://raw.githubusercontent.com/your-username/your-repo/main/data.csv')
+                .then(response => response.text())
+                .then(data => {
+                    parseCSV(data);
+                });
+        }
+
+        function updateData() {
+            const csvData = serializeTableToCSV();
+            fetch('https://raw.githubusercontent.com/gdamicantonio/gdamicantonio.github.io/main/assets/data.csv', {
+                method: 'PUT',
+                body: csvData
+            }).then(() => {
+                console.log('Data updated successfully.');
+            });
+        }
+        function parseCSV(csvData) {
+            const rows = csvData.split('\n');
+            for (let i = 1; i < rows.length; i++) {
+                const columns = rows[i].split(',');
+            }
+        }
+        function serializeTableToCSV() {
+            let csvData = 'Player,Wins,Losses\n';
+            return csvData;
+        }
+
+        loadData();
     </script>
+
+    </script>
+    <div>
+    <button id="toggleButton" onclick="toggleView()">Toggle View</button>
+    </div>
 </body>
 
 </html>
