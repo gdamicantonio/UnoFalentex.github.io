@@ -84,7 +84,7 @@
                 width: 100%;
             }
             img {
-                max-width: 20%; /* Set the maximum width to the actual image width */
+                max-width: 15%; /* Set the maximum width to the actual image width */
                 height: auto;    /* Maintain the aspect ratio */
                 display: block;
                 margin: 0 auto;   /* Center the image horizontally */
@@ -228,29 +228,37 @@
             numbersView = !numbersView;
             updateView();
         }
+        var originalWins = [];
+        var originalLosses = [];
         function updateView() {
             var winsCells = document.querySelectorAll('td:nth-child(2)');
             var lossesCells = document.querySelectorAll('td:nth-child(3)');
     
             if (numbersView) {
-                winsCells.forEach(cell => {
-                    cell.textContent = parseInt(cell.textContent) || 0;
+                winsCells.forEach((cell, index) => {
+                    const originalValue = originalWins[index] || 0;
+                    cell.textContent = originalValue;
                 });
-                lossesCells.forEach(cell => {
-                    cell.textContent = parseInt(cell.textContent) || 0;
+    
+                lossesCells.forEach((cell, index) => {
+                    const originalValue = originalLosses[index] || 0;
+                    cell.textContent = originalValue;
                 });
             } else {
-                winsCells.forEach(cell => {
+                winsCells.forEach((cell, index) => {
                     const wins = parseInt(cell.textContent);
+                    originalWins[index] = wins;
                     cell.textContent = wins > 0 ? "+".repeat(wins) : "";
                 });
     
-                lossesCells.forEach(cell => {
+                lossesCells.forEach((cell, index) => {
                     const losses = parseInt(cell.textContent);
+                    originalLosses[index] = losses;
                     cell.textContent = losses > 0 ? "-".repeat(losses) : "";
                 });
             }
         }
+        
         function loadData() {
             fetch('https://raw.githubusercontent.com/your-username/your-repo/main/data.csv')
                 .then(response => response.text())
