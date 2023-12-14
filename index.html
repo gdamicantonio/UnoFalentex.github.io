@@ -261,7 +261,7 @@
         }
         
         function loadData() {
-            fetch('https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/assets/data.csv')
+            fetch('https://raw.githubusercontent.com/gdamicantonio/gdamicantonio.github.io/assets/data.csv')
                 .then(response => response.text())
                 .then(data => {
                     parseCSV(data);
@@ -270,7 +270,7 @@
 
         function updateData() {
             const csvData = serializeTableToCSV();
-            const apiUrl = 'https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/assets/data.csv';
+            const apiUrl = 'https://raw.githubusercontent.com/gdamicantonio/gdamicantonio.github.io/assets/data.csv';
             const encodedData = btoa(csvData); // Base64 encode the CSV data
             fetch(apiUrl, {
                 method: 'PUT',
@@ -294,7 +294,7 @@
         }
 
         function getSHA() {
-            const apiUrl = `https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/assets/data.csv`;
+            const apiUrl = 'https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/assets/data.csv';
             return fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => data.sha)
