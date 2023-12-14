@@ -294,7 +294,7 @@
         }
 
         function getSHA() {
-            const apiUrl = `https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/contents/data.csv`;
+            const apiUrl = `https://api.github.com/repos/gdamicantonio/gdamicantonio.github.io/assets/data.csv`;
             return fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => data.sha)
